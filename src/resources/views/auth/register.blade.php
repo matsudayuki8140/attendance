@@ -10,11 +10,24 @@
 
 @section('content')
 <h2 class="content-title">会員登録</h2>
-<form action="post" class="register-form">
-    <input type="text" class="register-form__input" placeholder="名前">
-    <input type="text" class="register-form__input" placeholder="メールアドレス">
-    <input type="text" class="register-form__input" placeholder="パスワード">
-    <input type="text" class="register-form__input" placeholder="確認用パスワード">
+<form action="/register" method="post" class="register-form">
+    @csrf
+    <input type="text" name="name" class="register-form__input" placeholder="名前" value="{{ old('name') }}">
+    @error('name')
+    <p class="error-message">{{ $message }}</p>
+    @enderror
+    <input type="text" name="email" class="register-form__input" placeholder="メールアドレス" value="{{ old('email') }}">
+    @error('email')
+    <p class="error-message">{{ $message }}</p>
+    @enderror
+    <input type="password" name="password" class="register-form__input" placeholder="パスワード">
+    @error('password')
+    <p class="error-message">{{ $message }}</p>
+    @enderror
+    <input type="password" name="password_confirmation" class="register-form__input" placeholder="確認用パスワード">
+    @error('password_confirmation')
+    <p class="error-message">{{ $message }}</p>
+    @enderror
     <button class="register-form__button">会員登録</button>
 </form>
 <div class="lead">

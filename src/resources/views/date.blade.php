@@ -9,7 +9,11 @@
 @endsection
 
 @section('content')
-<div class="paginate-title"></div>
+<div class="date-title">
+    <a href="" class="preview">＜</a>
+    <h2 class="date">2023/07/01</h2>
+    <a href="" class="nextview">＞</a>
+</div>
 <table class="date-table">
     <tr class="date-list">
         <th class="date-title">名前</th>

@@ -1,3 +1,7 @@
+.content-inner {
+    padding: 50px;
+}
+
 .login-form {
     width: 300px;
     margin: 0 auto;
@@ -9,7 +13,13 @@
     padding: 10px;
     border: 1px solid #808080;
     border-radius: 3px;
-    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+.error-message {
+    text-align: left;
+    color: #f00;
+    margin: 5px;
 }
 
 .login-form__button {
@@ -20,7 +30,7 @@
     border: none;
     border-radius: 3px;
     color: #fff;
-    margin-bottom: 20px;
+    margin: 15px 0 20px;
 }
 
 .lead {
