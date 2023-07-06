@@ -17,8 +17,14 @@ use App\Http\Controllers\AttendanceController;
 
 Route::middleware('auth')->group(function () {
     Route::get('/', [AttendanceController::class, 'index']);
+    Route::get('/workStart', [AttendanceController::class, 'workStart']);
+    Route::get('/workEnd', [AttendanceController::class, 'workEnd']);
+    Route::get('/breakStart', [AttendanceController::class, 'breakStart']);
+    Route::get('/breakEnd', [AttendanceController::class, 'breakEnd']);
 
     Route::get('/attendance', [AttendanceController::class, 'attendance']);
+    Route::get('/attendance/before', [AttendanceController::class, 'before']);
+    Route::get('/attendance/after', [AttendanceController::class, 'after']);
 });
 
 require __DIR__.'/auth.php';

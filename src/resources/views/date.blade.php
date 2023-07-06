@@ -9,18 +9,18 @@
 @endsection
 
 @section('content')
-<div class="date-title">
-    <a href="" class="preview">＜</a>
+<div class="content-title">
+    <a href="/attendance/before" class="day-before">＜</a>
     <h2 class="date">2023/07/01</h2>
-    <a href="" class="nextview">＞</a>
+    <a href="/attendance/after" class="day-after">＞</a>
 </div>
 <table class="date-table">
     <tr class="date-list">
-        <th class="date-title">名前</th>
-        <th class="date-title">勤務開始</th>
-        <th class="date-title">勤務終了</th>
-        <th class="date-title">休憩時間</th>
-        <th class="date-title">勤務時間</th>
+        <th class="date-title" scope="col">名前</th>
+        <th class="date-title" scope="col">勤務開始</th>
+        <th class="date-title" scope="col">勤務終了</th>
+        <th class="date-title" scope="col">休憩時間</th>
+        <th class="date-title" scope="col">勤務時間</th>
     </tr>
     <!-- ここからサンプル----------------------------------- -->
     <tr class="date-list">

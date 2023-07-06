@@ -15,16 +15,19 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         $names = [
-            'hayata' => '早田',
-            'yamada' => '山田',
-            'tanaka' => '田中'
+            'tarou' => '太郎',
+            'jirou' => '次郎',
+            'saburou' => '三郎',
+            'sirou' => '四郎',
+            'gorou' => '五郎',
+            'test' => 'test',
         ];
 
         foreach($names as $email => $user){
             User::create([
                 'name' => $user,
                 'email' => $email . '@example.com',
-                'password' => bcrypt('xxx')
+                'password' => bcrypt('password')
             ]);
         }
     }

@@ -1,3 +1,39 @@
 .content-inner {
-    padding: 20px 50px;
+    padding: 50px;
+}
+
+.content-title {
+    display: flex;
+    justify-content: center;
+}
+
+.day-before, .day-after {
+    text-decoration: none;
+    height: 30px;
+    padding: 5px 10px;
+    font-weight: bold;
+    color: #0000ff;
+    background: #fff;
+    border: solid 1px #0000ff;
+    border-radius: 3px;
+}
+
+.date {
+    margin: 0;
+    padding: 0 20px;
+}
+
+.date-table {
+    margin: 50px auto;
+    width: 90%;
+}
+
+.date-list {
+    border-top: solid 1px #808080;
+    text-align: left;
+}
+
+.date-title, .date-item {
+    font-size: 20px;
+    padding: 20px 20px 20px 40px;
 }
