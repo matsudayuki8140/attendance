@@ -10,9 +10,17 @@
 
 @section('content')
 <div class="content-title">
-    <a href="/attendance/before" class="day-before">＜</a>
-    <h2 class="date">2023/07/01</h2>
-    <a href="/attendance/after" class="day-after">＞</a>
+    <form action="/attendance/before" method="post">
+        @csrf
+        <input type="hidden" name="date" value="{{ $date }}">
+        <button class="day-before">＜</button>
+    </form>
+    <h2 class="date">{{ $date }}</h2>
+    <form action="/attendance/after" method="post">
+        @csrf
+        <input type="hidden" name="date" value="{{ $date }}">
+        <button class="day-after">＞</button>
+    </form>
 </div>
 <table class="date-table">
     <tr class="date-list">
@@ -22,43 +30,15 @@
         <th class="date-title" scope="col">休憩時間</th>
         <th class="date-title" scope="col">勤務時間</th>
     </tr>
-    <!-- ここからサンプル----------------------------------- -->
+    @foreach($attendances as $attendance)
     <tr class="date-list">
-        <td class="date-item">sample</td>
-        <td class="date-item">10:00:00</td>
-        <td class="date-item">20:00:00</td>
-        <td class="date-item">00:30:00</td>
-        <td class="date-item">09:30:00</td>
+        <td class="date-item">{{ $attendance['name'] }}</td>
+        <td class="date-item">{{ $attendance['start'] }}</td>
+        <td class="date-item">{{ $attendance['end'] }}</td>
+        <td class="date-item">{{ $attendance['break'] }}</td>
+        <td class="date-item">{{ $attendance['total'] }}</td>
     </tr>
-    <tr class="date-list">
-        <td class="date-item">sample</td>
-        <td class="date-item">10:00:00</td>
-        <td class="date-item">20:00:00</td>
-        <td class="date-item">00:30:00</td>
-        <td class="date-item">09:30:00</td>
-    </tr>
-    <tr class="date-list">
-        <td class="date-item">sample</td>
-        <td class="date-item">10:00:00</td>
-        <td class="date-item">20:00:00</td>
-        <td class="date-item">00:30:00</td>
-        <td class="date-item">09:30:00</td>
-    </tr>
-    <tr class="date-list">
-        <td class="date-item">sample</td>
-        <td class="date-item">10:00:00</td>
-        <td class="date-item">20:00:00</td>
-        <td class="date-item">00:30:00</td>
-        <td class="date-item">09:30:00</td>
-    </tr>
-    <tr class="date-list">
-        <td class="date-item">sample</td>
-        <td class="date-item">10:00:00</td>
-        <td class="date-item">20:00:00</td>
-        <td class="date-item">00:30:00</td>
-        <td class="date-item">09:30:00</td>
-    </tr>
-    <!-- ここまでサンプル---------------------------------- -->
+    @endforeach
 </table>
-<div class="paginate"></div>
+<div class="paginate">{{ $attendances->links() }}</div>
 @endsection

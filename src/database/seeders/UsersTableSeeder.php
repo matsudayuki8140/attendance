@@ -20,15 +20,17 @@ class UsersTableSeeder extends Seeder
             'saburou' => '三郎',
             'sirou' => '四郎',
             'gorou' => '五郎',
-            'test' => 'test',
         ];
 
         foreach($names as $email => $user){
             User::create([
                 'name' => $user,
                 'email' => $email . '@example.com',
+                'email_verified_at' => now(),
                 'password' => bcrypt('password')
             ]);
         }
+
+        User::factory()->count(100)->create();
     }
 }
