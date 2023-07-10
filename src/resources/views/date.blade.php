@@ -10,13 +10,13 @@
 
 @section('content')
 <div class="content-title">
-    <form action="/attendance/before" method="post">
+    <form action="/attendance/before" method="get">
         @csrf
         <input type="hidden" name="date" value="{{ $date }}">
         <button class="day-before">＜</button>
     </form>
     <h2 class="date">{{ $date }}</h2>
-    <form action="/attendance/after" method="post">
+    <form action="/attendance/after" method="get">
         @csrf
         <input type="hidden" name="date" value="{{ $date }}">
         <button class="day-after">＞</button>

@@ -23,8 +23,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/breakEnd', [AttendanceController::class, 'breakEnd']);
 
     Route::get('/attendance', [AttendanceController::class, 'attendance']);
-    Route::post('/attendance/before', [AttendanceController::class, 'before']);
-    Route::post('/attendance/after', [AttendanceController::class, 'after']);
+    Route::get('/attendance/before', [AttendanceController::class, 'before']);
+    Route::get('/attendance/after', [AttendanceController::class, 'after']);
 });
 
 require __DIR__.'/auth.php';

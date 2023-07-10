@@ -24,7 +24,7 @@ class UsersTableSeeder extends Seeder
 
         foreach($names as $email => $user){
             User::create([
-                'name' => $user,
+                'name' => "テスト" . $user,
                 'email' => $email . '@example.com',
                 'email_verified_at' => now(),
                 'password' => bcrypt('password')

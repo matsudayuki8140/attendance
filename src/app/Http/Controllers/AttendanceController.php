@@ -139,42 +139,7 @@ class AttendanceController extends Controller
     public function attendance(Request $request)
     {
         $date = Carbon::parse('2021-11-01');
-        $worktimes = Worktime::with('user')->where('date', $date)->get();
-        $attendances = array();
-        $breakTotal = 0;
-        foreach($worktimes as $worktime) {
-            // 名前を取得
-            $user = User::find($worktime['user_id']);
-
-            // 勤務開始から勤務終了まで何時間か
-            $workTotal = Carbon::parse($worktime['start'])->diffInSeconds(Carbon::parse($worktime['end']));
-
-            // 休憩時間合計を計算
-            $breaktimes = Breaktime::with('worktime')->where('worktime_id', $worktime['id'])->get();
-            foreach($breaktimes as $breaktime) {
-                $diffInSeconds = Carbon::parse($breaktime['start'])->diffInSeconds(Carbon::parse($breaktime['end']));
-                $breakTotal = $breakTotal + $diffInSeconds;
-            }
-            $hours = floor($breakTotal / 3600);
-            $minutes = floor(($breakTotal % 3600) / 60);
-            $seconds = $breakTotal % 60;
-            $break = Carbon::parse($hours . ":" . $minutes . ":" . $seconds);
-
-            // 勤務時間から合計休憩時間を引く
-            $totalSeconds = $workTotal - $breakTotal;
-            $hours = floor($totalSeconds / 3600);
-            $minutes = floor(($totalSeconds % 3600) / 60);
-            $seconds = $totalSeconds % 60;
-            $total = Carbon::parse($hours . ":" . $minutes . ":" . $seconds);
-            $breakTotal = 0;  // 次の人の計算に引き継がないため
-            array_push($attendances, [
-                'name' => $user['name'],
-                'start' => Carbon::parse($worktime['start'])->toTimeString(),
-                'end' => Carbon::parse($worktime['end'])->toTimeString(),
-                'break' => $break->toTimeString(),
-                'total' => $total->toTimeString(),
-            ]);
-        }
+        $attendances = $this->getWorkingData($date);
         $date = $date->toDateString();
         $attendances = collect($attendances);
         $attendances = new LengthAwarePaginator(
@@ -192,42 +157,7 @@ class AttendanceController extends Controller
     {
         $date = $request->only('date');
         $date = Carbon::parse($date['date'])->subDay();
-        $worktimes = Worktime::with('user')->where('date', $date)->get();
-        $attendances = array();
-        $breakTotal = 0;
-        foreach($worktimes as $worktime) {
-            // 名前を取得
-            $user = User::find($worktime['user_id']);
-
-            // 勤務開始から勤務終了まで何時間か
-            $workTotal = Carbon::parse($worktime['start'])->diffInSeconds(Carbon::parse($worktime['end']));
-
-            // 休憩時間合計を計算
-            $breaktimes = Breaktime::with('worktime')->where('worktime_id', $worktime['id'])->get();
-            foreach($breaktimes as $breaktime) {
-                $diffInSeconds = Carbon::parse($breaktime['start'])->diffInSeconds(Carbon::parse($breaktime['end']));
-                $breakTotal = $breakTotal + $diffInSeconds;
-            }
-            $hours = floor($breakTotal / 3600);
-            $minutes = floor(($breakTotal % 3600) / 60);
-            $seconds = $breakTotal % 60;
-            $break = Carbon::parse($hours . ":" . $minutes . ":" . $seconds);
-
-            // 勤務時間から合計休憩時間を引く
-            $totalSeconds = $workTotal - $breakTotal;
-            $hours = floor($totalSeconds / 3600);
-            $minutes = floor(($totalSeconds % 3600) / 60);
-            $seconds = $totalSeconds % 60;
-            $total = Carbon::parse($hours . ":" . $minutes . ":" . $seconds);
-            $breakTotal = 0;  // 次の人の計算に引き継がないため
-            array_push($attendances, [
-                'name' => $user['name'],
-                'start' => Carbon::parse($worktime['start'])->toTimeString(),
-                'end' => Carbon::parse($worktime['end'])->toTimeString(),
-                'break' => $break->toTimeString(),
-                'total' => $total->toTimeString(),
-            ]);
-        }
+        $attendances = $this->getWorkingData($date);
         $date = $date->toDateString();
         $attendances = collect($attendances);
         $attendances = new LengthAwarePaginator(
@@ -245,42 +175,7 @@ class AttendanceController extends Controller
     {
         $date = $request->only('date');
         $date = Carbon::parse($date['date'])->addDay();
-        $worktimes = Worktime::with('user')->where('date', $date)->get();
-        $attendances = array();
-        $breakTotal = 0;
-        foreach($worktimes as $worktime) {
-            // 名前を取得
-            $user = User::find($worktime['user_id']);
-
-            // 勤務開始から勤務終了まで何時間か
-            $workTotal = Carbon::parse($worktime['start'])->diffInSeconds(Carbon::parse($worktime['end']));
-
-            // 休憩時間合計を計算
-            $breaktimes = Breaktime::with('worktime')->where('worktime_id', $worktime['id'])->get();
-            foreach($breaktimes as $breaktime) {
-                $diffInSeconds = Carbon::parse($breaktime['start'])->diffInSeconds(Carbon::parse($breaktime['end']));
-                $breakTotal = $breakTotal + $diffInSeconds;
-            }
-            $hours = floor($breakTotal / 3600);
-            $minutes = floor(($breakTotal % 3600) / 60);
-            $seconds = $breakTotal % 60;
-            $break = Carbon::parse($hours . ":" . $minutes . ":" . $seconds);
-
-            // 勤務時間から合計休憩時間を引く
-            $totalSeconds = $workTotal - $breakTotal;
-            $hours = floor($totalSeconds / 3600);
-            $minutes = floor(($totalSeconds % 3600) / 60);
-            $seconds = $totalSeconds % 60;
-            $total = Carbon::parse($hours . ":" . $minutes . ":" . $seconds);
-            $breakTotal = 0;  // 次の人の計算に引き継がないため
-            array_push($attendances, [
-                'name' => $user['name'],
-                'start' => Carbon::parse($worktime['start'])->toTimeString(),
-                'end' => Carbon::parse($worktime['end'])->toTimeString(),
-                'break' => $break->toTimeString(),
-                'total' => $total->toTimeString(),
-            ]);
-        }
+        $attendances = $this->getWorkingData($date);
         $date = $date->toDateString();
         $attendances = collect($attendances);
         $attendances = new LengthAwarePaginator(
@@ -292,5 +187,73 @@ class AttendanceController extends Controller
         );
 
         return view('date', compact('date', 'attendances'));
+    }
+
+    public function getWorkingData($date)
+    {
+        // 表示する勤務データを取得
+		$worktimes = Worktime::with('user')->where('date', $date)->get();
+        $attendances = array();
+        $breakTotal = 0;
+        foreach($worktimes as $worktime) {
+            // 名前を取得
+            $user = User::find($worktime['user_id']);
+
+            if(empty($worktime['end'])) { // 勤務中だった時の表示
+                // 休憩時間合計を計算
+                $breaktimes = Breaktime::with('worktime')->where('worktime_id', $worktime['id'])->get();
+                foreach($breaktimes as $breaktime) {
+                    if(!empty($breaktime['end'])) {
+                        // 休憩開始から休憩終了まで何時間か
+                        $diffInSeconds = Carbon::parse($breaktime['start'])->diffInSeconds(Carbon::parse($breaktime['end']));
+                        $breakTotal = $breakTotal + $diffInSeconds;
+                    }
+                }
+	            $hours = floor($breakTotal / 3600);
+	            $minutes = floor(($breakTotal % 3600) / 60);
+	            $seconds = $breakTotal % 60;
+	            $break = Carbon::parse($hours . ":" . $minutes . ":" . $seconds);
+
+	            $breakTotal = 0;
+	            array_push($attendances, [
+                    'name' => $user['name'],
+                    'start' => Carbon::parse($worktime['start'])->toTimeString(),
+                    'end' => "勤務中",
+                    'break' => $break->toTimeString(),
+                    'total' => "勤務中",
+                ]);
+            } else {
+                // 勤務開始から勤務終了まで何時間か
+                $workTotal = Carbon::parse($worktime['start'])->diffInSeconds(Carbon::parse($worktime['end']));
+
+                // 休憩時間合計を計算
+                $breaktimes = Breaktime::with('worktime')->where('worktime_id', $worktime['id'])->get();
+                foreach($breaktimes as $breaktime) {
+                    // 休憩開始から休憩終了まで何時間か
+                    $diffInSeconds = Carbon::parse($breaktime['start'])->diffInSeconds(Carbon::parse($breaktime['end']));
+                    $breakTotal = $breakTotal + $diffInSeconds;
+                }
+                $hours = floor($breakTotal / 3600);
+                $minutes = floor(($breakTotal % 3600) / 60);
+                $seconds = $breakTotal % 60;
+                $break = Carbon::parse($hours . ":" . $minutes . ":" . $seconds);
+
+                // 勤務時間から合計休憩時間を引く
+                $totalSeconds = $workTotal - $breakTotal;
+                $hours = floor($totalSeconds / 3600);
+                $minutes = floor(($totalSeconds % 3600) / 60);
+                $seconds = $totalSeconds % 60;
+                $total = Carbon::parse($hours . ":" . $minutes . ":" . $seconds);
+                $breakTotal = 0;  // 次の人の計算に引き継がないため
+                array_push($attendances, [
+                    'name' => $user['name'],
+                    'start' => Carbon::parse($worktime['start'])->toTimeString(),
+                    'end' => Carbon::parse($worktime['end'])->toTimeString(),
+                    'break' => $break->toTimeString(),
+                    'total' => $total->toTimeString(),
+                ]);
+            }
+        }
+        return $attendances;
     }
 }
