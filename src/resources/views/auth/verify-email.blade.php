@@ -1,39 +1,36 @@
-<x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
-        </x-slot>
+@extends('layouts.app')
 
-        <div class="mb-4 text-sm text-gray-600">
-            {{ __('Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn\'t receive the email, we will gladly send you another.') }}
-        </div>
+@section('title')
+<title>Atte - 認証用メールを送信しました</title>
+@endsection
 
-        @if (session('status') == 'verification-link-sent')
-            <div class="mb-4 font-medium text-sm text-green-600">
-                {{ __('A new verification link has been sent to the email address you provided during registration.') }}
-            </div>
-        @endif
+@section('css')
+<link rel="stylesheet" href="{{ asset('css/verify.css') }}">
+@endsection
 
-        <div class="mt-4 flex items-center justify-between">
-            <form method="POST" action="{{ route('verification.send') }}">
-                @csrf
+@section('content')
+<h2 class="content-title">認証用メールを送信しました</h2>
+<div class="lead">
+    <p class="lead-text">
+        届いたメールに記載されたURLをクリックして、会員登録を完了してください。
+    </p>
+    <p class="lead-text">
+        ※メールが届かない場合は、入力したアドレスに間違いがあるか、<br>あるいは迷惑メールフォルダに入っている可能性がありますのでご確認ください。
+    </p>
+</div>
+@if (session('status') == 'verification-link-sent')
+    <p class="resend-text">
+        認証用メールを再送信しました。
+    </p>
+@endif
 
-                <div>
-                    <x-button>
-                        {{ __('Resend Verification Email') }}
-                    </x-button>
-                </div>
-            </form>
-
-            <form method="POST" action="{{ route('logout') }}">
-                @csrf
-
-                <button type="submit" class="underline text-sm text-gray-600 hover:text-gray-900">
-                    {{ __('Log Out') }}
-                </button>
-            </form>
-        </div>
-    </x-auth-card>
-</x-guest-layout>
+<div class="mail-resend">
+    <p class="lead-text">
+        認証メールを再送する場合はボタンをクリックしてください。
+    </p>
+    <form method="POST" action="{{ route('verification.send') }}">
+        @csrf
+        <button class="resend-button">メールを再送信する</button>
+    </form>
+</div>
+@endsection

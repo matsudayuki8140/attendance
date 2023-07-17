@@ -16,28 +16,8 @@ class WorktimesTableSeeder extends Seeder
     public function run()
     {
         $start = Carbon::create(2021,11,1,10,0,0);
-        $end = NULL;
-        $param = [
-            'user_id' => 1,
-            'date' => $start->toDateString(),
-            'start' => $start,
-            'end' => $end,
-        ];
-        DB::table('worktimes')->insert($param);
-
-        $start = Carbon::create(2021,11,1,10,0,0);
-        $end = NULL;
-        $param = [
-            'user_id' => 2,
-            'date' => $start->toDateString(),
-            'start' => $start,
-            'end' => $end,
-        ];
-        DB::table('worktimes')->insert($param);
-
-        $start = Carbon::create(2021,11,1,10,0,0);
         $end = Carbon::create(2021,11,1,20,0,0);
-        for($userId = 3; $userId <= 105; $userId++) {
+        for($userId = 1; $userId <= 100; $userId++) {
             $param = [
                 'user_id' => $userId,
                 'date' => $start->toDateString(),
@@ -49,7 +29,7 @@ class WorktimesTableSeeder extends Seeder
 
         $start = Carbon::create(2021,10,31,10,0,0);
         $end = Carbon::create(2021,10,31,20,0,0);
-        for($userId = 1; $userId <= 105; $userId++) {
+        for($userId = 1; $userId <= 100; $userId++) {
             $param = [
                 'user_id' => $userId,
                 'date' => $start->toDateString(),
@@ -61,7 +41,7 @@ class WorktimesTableSeeder extends Seeder
 
         $start = Carbon::create(2021,11,2,10,0,0);
         $end = Carbon::create(2021,11,2,20,0,0);
-        for($userId = 1; $userId <= 105; $userId++) {
+        for($userId = 1; $userId <= 100; $userId++) {
             $param = [
                 'user_id' => $userId,
                 'date' => $start->toDateString(),

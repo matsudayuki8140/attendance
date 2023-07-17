@@ -2,6 +2,17 @@
     padding: 20px 50px;
 }
 
+.users-link {
+    text-decoration: none;
+    color: #000;
+    cursor: pointer;
+}
+
+.users-link:hover {
+    color: #00f;
+    text-decoration: underline;
+}
+
 .button-top {
     width: 100%;
     display: flex;

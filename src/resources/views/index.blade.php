@@ -9,7 +9,7 @@
 @endsection
 
 @section('content')
-<h2 class="content-title">{{ $user['name'] }}さんお疲れ様です！</h2>
+<h2 class="content-title"><a href="/users/attendance?userId={{ $user['id'] }}" class="users-link">{{ $user['name'] }}</a>さんお疲れ様です！</h2>
 <div class="button-top">
     @if($status === "private")
     <!-- 勤務開始ボタン　有効 -->

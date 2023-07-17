@@ -17,6 +17,7 @@
                 <ul class="nav-list">
                     <li><a href="/" class="nav-link">ホーム</a></li>
                     <li><a href="/attendance" class="nav-link">日付一覧</a></li>
+                    <li><a href="/users" class="nav-link">ユーザー一覧</a></li>
                     <li>
                         <form action="/logout" method="post">
                             @csrf

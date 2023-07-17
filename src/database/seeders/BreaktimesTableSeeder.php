@@ -16,26 +16,8 @@ class BreaktimesTableSeeder extends Seeder
     public function run()
     {
         $start = Carbon::create(2021,11,1,12,0,0);
-        $end = Carbon::create(2021,11,1,12,30,0);
-        $param = [
-            'worktime_id' => 1,
-            'start' => $start,
-            'end' => $end,
-        ];
-        DB::table('breaktimes')->insert($param);
-
-        $start = Carbon::create(2021,11,1,15,0,0);
-        $end = NULL;
-        $param = [
-            'worktime_id' => 1,
-            'start' => $start,
-            'end' => $end,
-        ];
-        DB::table('breaktimes')->insert($param);
-
-        $start = Carbon::create(2021,11,1,12,0,0);
-        $end = Carbon::create(2021,11,1,12,30,0);
-        for($worktimeId = 2; $worktimeId <= 105; $worktimeId++) {
+        $end = Carbon::create(2021,11,1,13,00,0);
+        for($worktimeId = 1; $worktimeId <= 100; $worktimeId++) {
             $param = [
                 'worktime_id' => $worktimeId,
                 'start' => $start,
@@ -45,8 +27,8 @@ class BreaktimesTableSeeder extends Seeder
         }
 
         $start = Carbon::create(2021,10,31,12,0,0);
-        $end = Carbon::create(2021,10,31,12,30,0);
-        for($worktimeId = 2; $worktimeId <= 105; $worktimeId++) {
+        $end = Carbon::create(2021,10,31,13,00,0);
+        for($worktimeId = 101; $worktimeId <= 200; $worktimeId++) {
             $param = [
                 'worktime_id' => $worktimeId,
                 'start' => $start,
@@ -56,8 +38,8 @@ class BreaktimesTableSeeder extends Seeder
         }
 
         $start = Carbon::create(2021,11,2,12,0,0);
-        $end = Carbon::create(2021,11,2,12,30,0);
-        for($worktimeId = 1; $worktimeId <= 105; $worktimeId++) {
+        $end = Carbon::create(2021,11,2,13,00,0);
+        for($worktimeId = 201; $worktimeId <= 300; $worktimeId++) {
             $param = [
                 'worktime_id' => $worktimeId,
                 'start' => $start,

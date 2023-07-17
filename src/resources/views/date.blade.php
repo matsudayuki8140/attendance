@@ -40,5 +40,5 @@
     </tr>
     @endforeach
 </table>
-<div class="paginate">{{ $attendances->links() }}</div>
+<div class="paginate">{{ $attendances->appends(['date' => $date])->links() }}</div>
 @endsection
