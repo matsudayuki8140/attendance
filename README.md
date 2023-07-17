@@ -1,6 +1,6 @@
 # Atte
 勤怠管理を目的として作成したアプリケーションです。<br>
-![stamp](https://github.com/matsudayuki8140/attendance/assets/129087994/e8b5e976-cc13-44d2-a0f5-a1dff6eb82e1)
+![stamp-ex](https://github.com/matsudayuki8140/attendance/assets/129087994/90f6408b-cc99-4556-badc-40f0e33d8730)
 <br>
 ## 作成した目的
 社員の勤務時間と休憩時間を正確に把握し、人事評価に反映する目的で作成しました。<br>
@@ -21,7 +21,7 @@ Laravel breezeの機能を使用しています。先述の通り、名前、メ
 Laravel breezeの機能を使用しています。ログインにはメールアドレスとパスワードの入力が必要です。
 ![login](https://github.com/matsudayuki8140/attendance/assets/129087994/93419a74-5cbd-422e-9f56-f443ba380f33)
 ### 打刻ページ
-![stamp](https://github.com/matsudayuki8140/attendance/assets/129087994/43baf318-514a-4a9b-8c4e-1d35b91ca28d)
+![stamp-ex](https://github.com/matsudayuki8140/attendance/assets/129087994/90f6408b-cc99-4556-badc-40f0e33d8730)
 #### 勤務開始時刻の記録
 ログイン後最初に表示されるページです。<br>
 「勤務開始」ボタンをクリックすることで新たに勤怠レコードを作成し、現在時刻を勤務開始時刻として記録します。<br>
@@ -42,7 +42,7 @@ Laravel breezeの機能を使用しています。ログインにはメールア
 この機能は、「休憩開始」ボタンをクリックした後でなければ使用することができません。<br>
 <br>
 ### 日付別一覧ページ
-![date](https://github.com/matsudayuki8140/attendance/assets/129087994/ddad77dd-7d96-4370-98c2-560c1e918ce5)
+![date-ex](https://github.com/matsudayuki8140/attendance/assets/129087994/192f49fb-79c4-4fb7-b0d1-f5ab7d322ed4)
 #### 日付別一覧ページ表示
 勤怠レコードと休憩レコードを日付別に取得し、一覧表示します。表示される情報は日付のほかに名前、勤務開始時刻、勤務終了時刻、合計休憩時間、勤務時間です。<br>
 ここでの勤務時間とは、勤務開始時刻と勤務終了時刻の差から、合計休憩時間を引いた時間のことを指します。<br>
