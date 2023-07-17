@@ -66,9 +66,203 @@ Laravel breezeの機能を使用しています。ログインにはメールア
 名前の左右に表示されているボタンをクリックすることで、ユーザーIDが前後のユーザーの勤怠表を表示します。<br>
 <br>
 ### 実行環境
-仮
+HTML5 <br>
+CSS3 <br>
+PHP 7.4.9 <br>
+Laravel Framework 8.83.27　<br>
+Laravel breeze <br>
+mysql 15.1 <br>
 ### テーブル設計
-仮
+<table>
+        <tr>
+            <th>カラム名</th>
+            <th>型</th>
+            <th>PRIMARY KEY</th>
+            <th>UNIQUE KEY</th>
+            <th>NOT NULL</th>
+            <th>FOREIGN KEY</th>
+        </tr>
+        <tr>
+            <td>name</td>
+            <td>string</td>
+            <td></td>
+            <td></td>
+            <td>〇</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>email</td>
+            <td>string</td>
+            <td></td>
+            <td>〇</td>
+            <td>〇</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>email_verified_at</td>
+            <td>timestamp</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>password</td>
+            <td>string</td>
+            <td></td>
+            <td></td>
+            <td>〇</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>created_at</td>
+            <td>timestamp</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>updated_at</td>
+            <td>timestamp</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>id</td>
+            <td>unsigned bigint</td>
+            <td>〇</td>
+            <td></td>
+            <td>〇</td>
+            <td></td>
+        </tr>
+    </table>
+    <table>
+        <tr>
+            <th>カラム名</th>
+            <th>型</th>
+            <th>PRIMARY KEY</th>
+            <th>UNIQUE KEY</th>
+            <th>NOT NULL</th>
+            <th>FOREIGN KEY</th>
+        </tr>
+        <tr>
+            <td>user_id</td>
+            <td>unsigned bigint</td>
+            <td></td>
+            <td></td>
+            <td>〇</td>
+            <td>〇</td>
+        </tr>
+        <tr>
+            <td>date</td>
+            <td>date</td>
+            <td></td>
+            <td></td>
+            <td>〇</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>start</td>
+            <td>datetime</td>
+            <td></td>
+            <td></td>
+            <td>〇</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>end</td>
+            <td>datetime</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>created_at</td>
+            <td>timestamp</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>updated_at</td>
+            <td>timestamp</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>id</td>
+            <td>unsigned bigint</td>
+            <td>〇</td>
+            <td></td>
+            <td>〇</td>
+            <td></td>
+        </tr>
+    </table>
+    <table>
+        <tr>
+            <th>カラム名</th>
+            <th>型</th>
+            <th>PRIMARY KEY</th>
+            <th>UNIQUE KEY</th>
+            <th>NOT NULL</th>
+            <th>FOREIGN KEY</th>
+        </tr>
+        <tr>
+            <td>worktime_id</td>
+            <td>unsigned bigint</td>
+            <td></td>
+            <td></td>
+            <td>〇</td>
+            <td>〇</td>
+        </tr>
+        <tr>
+            <td>start</td>
+            <td>datetime</td>
+            <td></td>
+            <td></td>
+            <td>〇</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>end</td>
+            <td>datetime</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>created_at</td>
+            <td>timestamp</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>updated_at</td>
+            <td>timestamp</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>id</td>
+            <td>unsigned bigint</td>
+            <td>〇</td>
+            <td></td>
+            <td>〇</td>
+            <td></td>
+        </tr>
+    </table>
 
 ### ER図
 ![atte drawio](https://github.com/matsudayuki8140/attendance/assets/129087994/cfb8a67f-bdf5-4a7e-831b-e1cd0bbed660)
