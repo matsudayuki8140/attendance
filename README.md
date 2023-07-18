@@ -65,14 +65,15 @@ Laravel breezeの機能を使用しています。ログインにはメールア
 #### 他ユーザーの一覧を表示する
 名前の左右に表示されているボタンをクリックすることで、ユーザーIDが前後のユーザーの勤怠表を表示します。<br>
 <br>
-### 実行環境
+## 実行環境
 HTML5 <br>
 CSS3 <br>
 PHP 7.4.9 <br>
 Laravel Framework 8.83.27　<br>
 Laravel breeze <br>
 mysql 15.1 <br>
-### テーブル設計
+## テーブル設計
+### users
 <table>
         <tr>
             <th>カラム名</th>
@@ -139,7 +140,9 @@ mysql 15.1 <br>
             <td></td>
         </tr>
     </table>
-    <table>
+
+### worktimes
+<table>
         <tr>
             <th>カラム名</th>
             <th>型</th>
@@ -204,8 +207,10 @@ mysql 15.1 <br>
             <td>〇</td>
             <td></td>
         </tr>
-    </table>
-    <table>
+</table>
+
+### breaktimes
+<table>
         <tr>
             <th>カラム名</th>
             <th>型</th>
@@ -262,12 +267,12 @@ mysql 15.1 <br>
             <td>〇</td>
             <td></td>
         </tr>
-    </table>
+</table>
 
-### ER図
+## ER図
 ![atte drawio](https://github.com/matsudayuki8140/attendance/assets/129087994/cfb8a67f-bdf5-4a7e-831b-e1cd0bbed660)
 
-### 環境構築
+## 環境構築
 仮
-### その他
+## その他
 仮
