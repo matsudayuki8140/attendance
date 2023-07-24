@@ -80,7 +80,7 @@ class ListController extends Controller
 
     public function attendance(Request $request)
     {
-        $date = Carbon::parse('2021-11-01');
+        $date = Carbon::now();
         $attendances = $this->getWorkingData($date);
         $date = $date->toDateString();
         $attendances = collect($attendances);
