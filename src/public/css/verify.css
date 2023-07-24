@@ -1,0 +1,22 @@
+.content-inner {
+    padding: 50px;
+}
+
+.header-nav {
+    display: none;
+}
+
+.lead {
+    padding: 20px 0 0;
+}
+
+.resend-button {
+    display: inline-block;
+    width: 200px;
+    padding: 10px;
+    background-color: #0000ff;
+    border: none;
+    border-radius: 3px;
+    color: #fff;
+    margin: 15px 0 20px;
+}

@@ -1,0 +1,44 @@
+.content-inner {
+    padding: 50px;
+}
+
+.login-form {
+    width: 300px;
+    margin: 0 auto;
+}
+
+.login-form__input {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #808080;
+    border-radius: 3px;
+    margin-top: 15px;
+}
+
+.error-message {
+    text-align: left;
+    color: #f00;
+    margin: 5px;
+}
+
+.login-form__button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #0000ff;
+    border: none;
+    border-radius: 3px;
+    color: #fff;
+    margin: 15px 0 20px;
+}
+
+.lead {
+    text-align: center;
+}
+
+.lead-text {
+    color: #808080;
+    font-size: 15px;
+    margin: 0;
+}

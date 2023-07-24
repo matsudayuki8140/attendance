@@ -1,0 +1,71 @@
+.content-inner {
+    padding: 40px;
+}
+
+/* title ------------------------------------ */
+.content-title {
+    margin: 0;
+    padding: 0 20px;
+}
+
+/* table -------------------------------------- */
+.users-table {
+    margin: 20px auto;
+    width: 500px;
+}
+
+.users-list {
+    border-top: solid 1px #808080;
+    text-align: left;
+}
+
+.users-title,
+.users-item {
+    font-size: 20px;
+    padding: 20px 20px 20px 80px;
+}
+
+.users-link {
+    text-decoration: none;
+    color: #000;
+    cursor: pointer;
+}
+
+.users-link:hover {
+    font-weight: bolder;
+}
+
+/* pagination ---------------------------------- */
+.page {
+    text-decoration: none;
+    display: block;
+    width: 40px;
+    padding: 7px 0;
+    background: #fff;
+    border-left: solid 0.5px #ddd;
+    border-right: solid 0.5px #ddd;
+    color: #0000cd;
+}
+
+.page-link {
+    display: flex;
+    justify-content: center;
+}
+
+.current-page {
+    border: none;
+    background: #0000cd;
+    color: #fff;
+}
+
+.page-preview {
+    border-radius: 5px 0 0 5px;
+}
+
+.page-nextview {
+    border-radius: 0 5px 5px 0;
+}
+
+.page-invalid {
+    color: #000;
+}

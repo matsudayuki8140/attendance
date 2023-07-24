@@ -1,0 +1,75 @@
+.content-inner {
+    padding: 40px;
+}
+
+.content-title {
+    display: flex;
+    justify-content: center;
+}
+
+/* title ------------------------------------ */
+.day-before, .day-after {
+    height: 30px;
+    padding: 5px 10px;
+    font-weight: bold;
+    color: #0000cd;
+    background: #fff;
+    border: solid 1px #0000cd;
+    border-radius: 3px;
+}
+
+.date {
+    margin: 0;
+    padding: 0 20px;
+}
+
+/* table -------------------------------------- */
+.date-table {
+    margin: 50px auto 20px;
+    width: 90%;
+}
+
+.date-list {
+    border-top: solid 1px #808080;
+    text-align: left;
+}
+
+.date-title, .date-item {
+    font-size: 20px;
+    padding: 20px 20px 20px 40px;
+}
+
+/* pagination ---------------------------------- */
+.page {
+    text-decoration: none;
+    display: block;
+    width: 40px;
+    padding: 7px 0;
+    background: #fff;
+    border-left: solid 0.5px #ddd;
+    border-right: solid 0.5px #ddd;
+    color: #0000cd;
+}
+
+.page-link {
+    display: flex;
+    justify-content: center;
+}
+
+.current-page {
+    border: none;
+    background: #0000cd;
+    color: #fff;
+}
+
+.page-preview {
+    border-radius: 5px 0 0 5px;
+}
+
+.page-nextview {
+    border-radius: 0 5px 5px 0;
+}
+
+.page-invalid {
+    color: #000;
+}
