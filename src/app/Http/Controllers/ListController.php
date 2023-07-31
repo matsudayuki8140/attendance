@@ -80,7 +80,7 @@ class ListController extends Controller
 
     public function attendance(Request $request)
     {
-        $date = Carbon::parse('2021-11-01');
+        $date = Carbon::now();
         $attendances = $this->getWorkingData($date);
         $date = $date->toDateString();
         $attendances = collect($attendances);
@@ -159,7 +159,7 @@ class ListController extends Controller
                 // 休憩時間合計を計算
                 $breaktimes = Breaktime::with('worktime')->where('worktime_id', $worktime['id'])->get();
                 foreach($breaktimes as $breaktime) {
-                    if(!empty($breaktime['end'])) {
+                    if(!empty($breaktime['end'])) { // 休憩中じゃなかったときの表示
                         // 休憩開始から休憩終了まで何時間か
                         $diffInSeconds = Carbon::parse($breaktime['start'])->diffInSeconds(Carbon::parse($breaktime['end']));
                         $breakTotal = $breakTotal + $diffInSeconds;
@@ -171,7 +171,7 @@ class ListController extends Controller
 	            $break = Carbon::parse($hours . ":" . $minutes . ":" . $seconds)->toTimeString();
 
 	            array_push($attendances, [
-                    'date' => $worktime['date']->toDateString(),
+                    'date' => Carbon::parse($worktime['date'])->toDateString(),
                     'start' => Carbon::parse($worktime['start'])->toTimeString(),
                     'end' => "勤務中",
                     'break' => $break,
@@ -200,7 +200,7 @@ class ListController extends Controller
                 $seconds = $totalSeconds % 60;
                 $total = Carbon::createFromTime($hours, $minutes, $seconds)->toTimeString();
                 array_push($attendances, [
-                    'date' => $worktime['date'],
+                    'date' => Carbon::parse($worktime['date'])->toDateString(),
                     'start' => Carbon::parse($worktime['start'])->toTimeString(),
                     'end' => Carbon::parse($worktime['end'])->toTimeString(),
                     'break' => $break,
