@@ -44,7 +44,11 @@ class ListController extends Controller
                     'break' => $break,
                     'total' => "勤務中",
                 ]);
+<<<<<<< HEAD
             } else {
+=======
+            } else { // 勤務中でないときの表示
+>>>>>>> 1c979da (Controller更新)
                 // 勤務開始から勤務終了まで何時間か
                 $workTotal = Carbon::parse($worktime['start'])->diffInSeconds(Carbon::parse($worktime['end']));
 
@@ -80,7 +84,11 @@ class ListController extends Controller
 
     public function attendance(Request $request)
     {
+<<<<<<< HEAD
         $date = Carbon::now();
+=======
+        $date = Carbon::today();
+>>>>>>> 1c979da (Controller更新)
         $attendances = $this->getWorkingData($date);
         $date = $date->toDateString();
         $attendances = collect($attendances);
