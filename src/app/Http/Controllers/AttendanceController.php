@@ -63,11 +63,7 @@ class AttendanceController extends Controller
         ->where('user_id', $user['id'])
         ->latest('start')
         ->first();
-<<<<<<< HEAD
-        if($date->toDateString() === $worktime['date']) {
-=======
         if($date->isSameDay(Carbon::parse($worktime['date']))) {
->>>>>>> 1c979da (Controller更新)
             $end = ['end' => $date->toDateTimeString()];
             Worktime::find($worktime['id'])->update($end);
         } else {
@@ -114,16 +110,9 @@ class AttendanceController extends Controller
         ->where('worktime_id', $worktime['id'])
         ->latest('start')
         ->first();
-<<<<<<< HEAD
-        if($date->toDateString() === $worktime['date']) {
-            $end = ['end' => $date->toDateTimeString()];
-            Breaktime::find($breaktime['id'])->update($end);
-            Worktime::find($worktime['id'])->update($end);
-=======
         if($date->isSameDay(Carbon::parse($worktime['date']))) {
             $end = ['end' => $date->toDateTimeString()];
             Breaktime::find($breaktime['id'])->update($end);
->>>>>>> 1c979da (Controller更新)
         } else {
             $today = Carbon::today()->toDateTimeString();
             $end = ['end' => $today];
