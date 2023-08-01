@@ -20,7 +20,7 @@ services:
     volumes:
       - ./src:/var/www/
 
-mysql:
+  mysql:
     image: mysql:8.0.26
     restart: always
     environment:
