@@ -31,6 +31,6 @@ class UsersTableSeeder extends Seeder
             ]);
         }
 
-        User::factory()->count(95)->create();
+        User::factory()->count(45)->create();
     }
 }
