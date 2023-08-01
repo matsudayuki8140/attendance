@@ -15,9 +15,9 @@ class BreaktimesTableSeeder extends Seeder
      */
     public function run()
     {
-        $start = Carbon::create(2021,11,1,12,0,0);
-        $end = Carbon::create(2021,11,1,13,00,0);
-        for($worktimeId = 1; $worktimeId <= 100; $worktimeId++) {
+        $start = Carbon::create(2023,7,26,12,0,0);
+        $end = Carbon::create(2023,7,26,13,00,0);
+        for($worktimeId = 1; $worktimeId <= 50; $worktimeId++) {
             $param = [
                 'worktime_id' => $worktimeId,
                 'start' => $start,
@@ -26,9 +26,9 @@ class BreaktimesTableSeeder extends Seeder
             DB::table('breaktimes')->insert($param);
         }
 
-        $start = Carbon::create(2021,10,31,12,0,0);
-        $end = Carbon::create(2021,10,31,13,00,0);
-        for($worktimeId = 101; $worktimeId <= 200; $worktimeId++) {
+        $start = $start->addDay();
+        $end = $end->addDay();
+        for($worktimeId = 51; $worktimeId <= 100; $worktimeId++) {
             $param = [
                 'worktime_id' => $worktimeId,
                 'start' => $start,
@@ -37,9 +37,86 @@ class BreaktimesTableSeeder extends Seeder
             DB::table('breaktimes')->insert($param);
         }
 
-        $start = Carbon::create(2021,11,2,12,0,0);
-        $end = Carbon::create(2021,11,2,13,00,0);
-        for($worktimeId = 201; $worktimeId <= 300; $worktimeId++) {
+        $start = $start->addDay();
+        $end = $end->addDay();
+        for($worktimeId = 101; $worktimeId <= 150; $worktimeId++) {
+            $param = [
+                'worktime_id' => $worktimeId,
+                'start' => $start,
+                'end' => $end,
+            ];
+            DB::table('breaktimes')->insert($param);
+        }
+
+        $start = $start->addDay();
+        $end = $end->addDay();
+        for($worktimeId = 151; $worktimeId <= 200; $worktimeId++) {
+            $param = [
+                'worktime_id' => $worktimeId,
+                'start' => $start,
+                'end' => $end,
+            ];
+            DB::table('breaktimes')->insert($param);
+        }
+
+        $start = $start->addDay();
+        $end = $end->addDay();
+        for($worktimeId = 201; $worktimeId <= 250; $worktimeId++) {
+            $param = [
+                'worktime_id' => $worktimeId,
+                'start' => $start,
+                'end' => $end,
+            ];
+            DB::table('breaktimes')->insert($param);
+        }
+
+        $start = $start->addDay();
+        $end = $end->addDay();
+        for($worktimeId = 251; $worktimeId <= 300; $worktimeId++) {
+            $param = [
+                'worktime_id' => $worktimeId,
+                'start' => $start,
+                'end' => $end,
+            ];
+            DB::table('breaktimes')->insert($param);
+        }
+
+        $start = $start->addDay();
+        $end = $end->addDay();
+        for($worktimeId = 301; $worktimeId <= 350; $worktimeId++) {
+            $param = [
+                'worktime_id' => $worktimeId,
+                'start' => $start,
+                'end' => $end,
+            ];
+            DB::table('breaktimes')->insert($param);
+        }
+
+        $start = $start->addDay();
+        $end = $end->addDay();
+        for($worktimeId = 351; $worktimeId <= 400; $worktimeId++) {
+            $param = [
+                'worktime_id' => $worktimeId,
+                'start' => $start,
+                'end' => $end,
+            ];
+            DB::table('breaktimes')->insert($param);
+        }
+
+        $start = $start->addDay();
+        $end = $end->addDay();
+        for($worktimeId = 401; $worktimeId <= 450; $worktimeId++) {
+            $param = [
+                'worktime_id' => $worktimeId,
+                'start' => $start,
+                'end' => $end,
+            ];
+            DB::table('breaktimes')->insert($param);
+        }
+
+        $start = $start->addDay();
+        $end = $end->addDay();
+        for($worktimeId = 451; $worktimeId <= 500; $worktimeId++) {
             $param = [
                 'worktime_id' => $worktimeId,
                 'start' => $start,
