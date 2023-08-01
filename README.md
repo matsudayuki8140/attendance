@@ -79,8 +79,8 @@ PHP 7.4.9 <br>
 Laravel Framework 8.83.27　<br>
 Laravel breeze <br>
 mysql 15.1 <br>
-AWS EC2(プラットフォーム：Amazon Linux2)<br>
-    RDS(エンジン：MySQL)<br>
+Mailhog<br>
+AWS EC2(プラットフォーム：Amazon Linux2) RDS(エンジン：MySQL)<br>
 ## テーブル設計
 ### users
 <table>
