@@ -6,8 +6,15 @@
 社員の勤務時間と休憩時間を正確に把握し、人事評価に反映する目的で作成しました。<br>
 <br>
 ## アプリケーションURL
+http://localhost<br>
 ログインには会員登録が必要です。入力する情報は名前、メールアドレス、パスワードの３つです。<br>
 会員登録を完了するにはメールアドレスの認証が必要です。登録したメールアドレスに認証メールが送信されるので、記載されたリンクをクリックすることで会員登録を完了することができます。<br>
+### メール認証について
+このアプリでは、メールサーバーとしてMailhogを使用しています。認証メールは http://localhost:8025 から確認できます。<br>
+#### メール認証済みテスト用アカウント
+name：テスト太郎<br>
+email：tarou@example.com<br>
+password：password<br>
 <br>
 ## 機能一覧
 ### 会員登録
@@ -72,6 +79,8 @@ PHP 7.4.9 <br>
 Laravel Framework 8.83.27　<br>
 Laravel breeze <br>
 mysql 15.1 <br>
+Mailhog<br>
+AWS EC2(プラットフォーム：Amazon Linux2)　RDS(エンジン：MySQL)<br>
 ## テーブル設計
 ### users
 <table>
@@ -273,6 +282,8 @@ mysql 15.1 <br>
 ![atte drawio](https://github.com/matsudayuki8140/attendance/assets/129087994/cfb8a67f-bdf5-4a7e-831b-e1cd0bbed660)
 
 ## 環境構築
-仮
-## その他
-仮
+docker-composeを利用しました。以下の手順でセットアップが出来るはずです。<br>
+１．作業ディレクトリにこのリポジトリをクローンする<br>
+２．Dockerコンテナを起動する（$ docker-compose up -d --build）<br>
+３．PHPコンテナ内にログインして（$ docker-compose exec php bash）コンポーザーをインストール（$ composer install）<br>
+４．.envファイルを編集する<br>
